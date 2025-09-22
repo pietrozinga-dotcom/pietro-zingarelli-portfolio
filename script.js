@@ -473,21 +473,19 @@ function initDownloadCV() {
     
     if (downloadBtn) {
         downloadBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Create a simple PDF download simulation
-            const link = document.createElement('a');
-            link.href = '#'; // Replace with actual CV PDF path
-            link.download = 'Pietro-Zingarelli-CV.pdf';
-            
             // Show download animation
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = 'scale(1)';
             }, 150);
             
-            // For now, show an alert (replace with actual download)
-            alert('CV PDF sarà disponibile presto! Per ora puoi contattarmi direttamente.');
+            // Add success feedback
+            const originalText = this.querySelector('span').textContent;
+            this.querySelector('span').textContent = 'Download in corso...';
+            
+            setTimeout(() => {
+                this.querySelector('span').textContent = originalText;
+            }, 2000);
         });
     }
 }
