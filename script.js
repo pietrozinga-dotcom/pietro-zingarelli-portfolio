@@ -473,19 +473,16 @@ function initDownloadCV() {
     
     if (downloadBtn) {
         downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
             // Show download animation
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = 'scale(1)';
             }, 150);
             
-            // Add success feedback
-            const originalText = this.querySelector('span').textContent;
-            this.querySelector('span').textContent = 'Download in corso...';
-            
-            setTimeout(() => {
-                this.querySelector('span').textContent = originalText;
-            }, 2000);
+            // Show message for now
+            alert('CV PDF sarà disponibile presto! Per ora puoi contattarmi direttamente.');
         });
     }
 }
